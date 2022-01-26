@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+	.home-page-font-size {
+		font-size: 14px;
+	}
+}
