@@ -5,7 +5,7 @@
 </script>
 
 <div class="bg-white my-10 rounded-lg shadow-sm">
-	<img src={country.flags.svg} alt={`Flag of ${country.name.common}`} class="rounded-t-lg" />
+	<img src={country.flags.svg} alt={`Flag of ${country.name.common}`} class="rounded-t-lg w-full" />
 	<div class="p-8">
 		<p class="font-extrabold text-xl mb-5">{country.name.common}</p>
 		<p class="text-lg">
