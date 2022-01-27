@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import Header from '../components/Header.svelte';
 </script>
 
 <svelte:head>
@@ -12,4 +13,5 @@
 	<title>REST Countries</title>
 </svelte:head>
 
+<Header />
 <slot />
