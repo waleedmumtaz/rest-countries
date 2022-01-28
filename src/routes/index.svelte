@@ -1,25 +1,29 @@
 <script context="module">
 	export async function load({ fetch }) {
-		const url = 'https://restcountries.com/v3.1/all';
+		const url = 'https://restcountries.com/v2/all';
 		const res = await fetch(url);
 		const fetchedCountries = await res.json();
 
 		const transformedCountries = fetchedCountries.map((country) => {
 			return {
-				id: toId(country.name.common),
+				id: toId(country.name),
 				flag: country.flags.svg,
-				name: country.name.common,
+				name: country.name,
 				population: country.population,
 				region: country.region,
-				capital: country.capital
+				capital: country.capital,
+				nativeName: country.nativeName,
+				subRegion: country.subregion,
+				topLevelDomain: country.topLevelDomain,
+				currencies: country.currencies,
+				languages: country.languages,
+				borderCountries: country.borders
 			};
 		});
 
-		const sortedCountries = sortCountries(transformedCountries);
-
 		return {
 			props: {
-				countries: sortedCountries
+				countries: transformedCountries
 			}
 		};
 	}
@@ -29,7 +33,6 @@
 	import CountriesList from '../components/CountriesList.svelte';
 	import Search from '../components/Search.svelte';
 	import SelectRegion from '../components/SelectRegion.svelte';
-	import { sortCountries } from '../utils/sortCountries';
 	import { toId } from '../utils/toId';
 
 	export let countries;

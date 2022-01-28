@@ -1,1 +1,5 @@
-Country details here..
+<script context='module'>
+  export async function load ({ page }) {
+    
+  }
+</script>
