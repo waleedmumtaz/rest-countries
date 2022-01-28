@@ -1,6 +1,6 @@
 export const sortCountries = (fetchedCountries) => {
 	return fetchedCountries.sort((a, b) => {
-		if (a.name.common < b.name.common) {
+		if (a.name < b.name) {
 			return -1;
 		}
 

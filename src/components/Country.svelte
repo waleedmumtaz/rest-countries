@@ -4,10 +4,10 @@
 	export let country;
 </script>
 
-<div class="bg-white my-10 rounded-lg shadow-sm">
-	<img src={country.flags.svg} alt={`Flag of ${country.name.common}`} class="rounded-t-lg w-full" />
+<a href={`/country/${country.id}`} class="bg-white my-10 rounded-lg shadow-sm">
+	<img src={country.flag} alt={`Flag of ${country.name}`} class="rounded-t-lg w-full" />
 	<div class="p-8">
-		<p class="font-extrabold text-xl mb-5">{country.name.common}</p>
+		<p class="font-extrabold text-xl mb-5">{country.name}</p>
 		<p class="text-lg">
 			<span class="font-semibold">Population: </span>{numberWithCommas(country.population)}
 		</p>
@@ -16,4 +16,4 @@
 			<p class="text-lg"><span class="font-semibold">Capital: </span>{country.capital}</p>
 		{/if}
 	</div>
-</div>
+</a>

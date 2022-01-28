@@ -4,7 +4,18 @@
 		const res = await fetch(url);
 		const fetchedCountries = await res.json();
 
-		const sortedCountries = sortCountries(fetchedCountries);
+		const transformedCountries = fetchedCountries.map((country) => {
+			return {
+				id: toId(country.name.common),
+				flag: country.flags.svg,
+				name: country.name.common,
+				population: country.population,
+				region: country.region,
+				capital: country.capital
+			};
+		});
+
+		const sortedCountries = sortCountries(transformedCountries);
 
 		return {
 			props: {
@@ -19,6 +30,7 @@
 	import Search from '../components/Search.svelte';
 	import SelectRegion from '../components/SelectRegion.svelte';
 	import { sortCountries } from '../utils/sortCountries';
+	import { toId } from '../utils/toId';
 
 	export let countries;
 
@@ -35,18 +47,16 @@
 	};
 
 	$: {
-		if (searchTerm) {
+		if (searchTerm || region) {
 			filteredCountries = countries.filter((country) => {
-				return country.name.common.toLowerCase().includes(searchTerm.toLowerCase());
+				return country.name.toLowerCase().includes(searchTerm.toLowerCase());
 			});
-		} else {
-			filteredCountries = [...countries];
-		}
 
-		if (region) {
-			filteredCountries = filteredCountries.filter((country) => {
-				return country.region === region;
-			});
+			if (region) {
+				filteredCountries = filteredCountries.filter((country) => {
+					return country.region == region;
+				});
+			}
 		} else {
 			filteredCountries = [...countries];
 		}
