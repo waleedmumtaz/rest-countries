@@ -3,7 +3,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	const handleChange = (e) => {
+	const handleInput = (e) => {
 		dispatch('search', e.target.value);
 	};
 </script>
@@ -13,7 +13,7 @@
 	<input
 		type="text"
 		name="country"
-		on:input={handleChange}
+		on:input={handleInput}
 		placeholder="Search for a country..."
 		class="pl-16 py-4 w-full rounded-lg focus:outline-none"
 	/>

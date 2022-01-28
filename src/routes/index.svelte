@@ -24,9 +24,14 @@
 
 	let searchTerm = '';
 	let filteredCountries = [];
+	let region = '';
 
 	const setSearchTerm = (e) => {
 		searchTerm = e.detail;
+	};
+
+	const setRegion = (e) => {
+		region = e.detail;
 	};
 
 	$: {
@@ -37,11 +42,19 @@
 		} else {
 			filteredCountries = [...countries];
 		}
+
+		if (region) {
+			filteredCountries = filteredCountries.filter((country) => {
+				return country.region === region;
+			});
+		} else {
+			filteredCountries = [...countries];
+		}
 	}
 </script>
 
 <main class="font-nunito-sans bg-cstm-very-light-gray-light-mode-background p-5">
 	<Search on:search={setSearchTerm} />
-	<SelectRegion />
+	<SelectRegion on:filter={setRegion} />
 	<CountriesList {filteredCountries} />
 </main>
