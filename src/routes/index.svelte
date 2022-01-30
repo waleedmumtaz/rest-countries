@@ -66,6 +66,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Where in the world?</title>
+</svelte:head>
+
 <main class="font-nunito-sans bg-cstm-very-light-gray-light-mode-background p-5">
 	<div class="sm:flex sm:justify-between sm:container sm:mx-auto">
 		<Search on:search={setSearchTerm} />
