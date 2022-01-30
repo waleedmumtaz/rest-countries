@@ -67,7 +67,9 @@
 </script>
 
 <main class="font-nunito-sans bg-cstm-very-light-gray-light-mode-background p-5">
-	<Search on:search={setSearchTerm} />
-	<SelectRegion on:filter={setRegion} />
+	<div class="sm:flex sm:justify-between sm:container sm:mx-auto">
+		<Search on:search={setSearchTerm} />
+		<SelectRegion on:filter={setRegion} />
+	</div>
 	<CountriesList {filteredCountries} />
 </main>

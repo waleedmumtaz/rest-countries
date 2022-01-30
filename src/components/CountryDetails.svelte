@@ -19,10 +19,41 @@
 
 	let currenciesWithCommas = currencies.map((currency) => currency.name).join(', ');
 	let languagesWithCommas = languages.map((language) => language.name).join(', ');
-	let borderCountriesCodesString = borderCountriesCodes.toString().toLowerCase();
-	let borderCountriesNamesArray = countryCodeToName(borderCountriesCodesString);
 
-	console.log('borderCountriesNamesArray', borderCountriesNamesArray);
+	let borderCountriesNamesArray;
+
+	borderCountriesNamesArray = countryCodeToName(borderCountriesCodes);
+	console.log(borderCountriesNamesArray.then((data) => data));
+
+	// countryCodeToName(borderCountriesCodes)
+	// 	.then((response) => {
+	// 		return console.log(response);
+	// 		// let borderCountriesNames = borderCountriesNamesArray.join(', ');
+	// 		// console.log(borderCountriesNamesArray);
+	// 	})
+	// 	.catch((error) => {
+	// 		console.log(error);
+	// 	});
+	// console.log('Need a value here!', borderCountriesNamesArray);
+
+	// const borderCountriesNamesArray = getBorderCountriesNamesArray();
+	// console.log(borderCountriesNamesArray);
+	// console.log(borderCountriesNamesArray);
+
+	// const countryCodeToName = async () => {
+	// 	// const countryCodesUrl = `https://restcountries.com/v2/alpha?codes=${borderCountriesCodesString}`;
+	// 	// fetch(countryCodesUrl)
+	// 	// 	.then((countryCodesRes) => countryCodesRes.json())
+	// 	// 	.then((countryCodesData) => countryCodesData.map((country) => country.name));
+	// 	const countryCodesUrl = `https://restcountries.com/v2/alpha?codes=${borderCountriesCodesString}`;
+	// 	const countryCodesRes = await fetch(countryCodesUrl);
+	// 	const countryCodesData = await countryCodesRes.json();
+
+	// 	borderCountriesCodesString = countryCodesData.map((country) => country.name);
+	// 	console.log(countryCodesData.map((country) => country.name));
+	// };
+
+	// let borderCountriesNamesArray = countryCodeToName(borderCountriesCodes);
 </script>
 
 <div>

@@ -8,7 +8,7 @@
 	};
 </script>
 
-<form on:submit|preventDefault class="shadow-sm mb-8 flex items-center w-fit relative">
+<form on:submit|preventDefault class="shadow-sm mb-8 sm:mb-0 flex items-center w-fit relative">
 	<label for="regions" />
 	<select
 		on:change={handleChange}
