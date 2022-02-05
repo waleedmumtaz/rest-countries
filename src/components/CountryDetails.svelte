@@ -1,4 +1,5 @@
 <script>
+	import { countryCodeToName } from '../utils/countryCodeToName';
 	import { numberWithCommas } from '../utils/numberWithCommas';
 	export let countryDetails;
 
@@ -25,39 +26,10 @@
 		languagesWithCommas = languages.map((language) => language.name).join(', ');
 	}
 
-	// let borderCountriesNamesArray;
-	// borderCountriesNamesArray = countryCodeToName(borderCountriesCodes);
-	// console.log(borderCountriesNamesArray.then((data) => data));
-
-	// countryCodeToName(borderCountriesCodes)
-	// 	.then((response) => {
-	// 		return console.log(response);
-	// 		// let borderCountriesNames = borderCountriesNamesArray.join(', ');
-	// 		// console.log(borderCountriesNamesArray);
-	// 	})
-	// 	.catch((error) => {
-	// 		console.log(error);
-	// 	});
-	// console.log('Need a value here!', borderCountriesNamesArray);
-
-	// const borderCountriesNamesArray = getBorderCountriesNamesArray();
-	// console.log(borderCountriesNamesArray);
-	// console.log(borderCountriesNamesArray);
-
-	// const countryCodeToName = async () => {
-	// 	// const countryCodesUrl = `https://restcountries.com/v2/alpha?codes=${borderCountriesCodesString}`;
-	// 	// fetch(countryCodesUrl)
-	// 	// 	.then((countryCodesRes) => countryCodesRes.json())
-	// 	// 	.then((countryCodesData) => countryCodesData.map((country) => country.name));
-	// 	const countryCodesUrl = `https://restcountries.com/v2/alpha?codes=${borderCountriesCodesString}`;
-	// 	const countryCodesRes = await fetch(countryCodesUrl);
-	// 	const countryCodesData = await countryCodesRes.json();
-
-	// 	borderCountriesCodesString = countryCodesData.map((country) => country.name);
-	// 	console.log(countryCodesData.map((country) => country.name));
-	// };
-
-	// let borderCountriesNamesArray = countryCodeToName(borderCountriesCodes);
+	let borderCountriesNames = [];
+	(async () => {
+		borderCountriesNames = await countryCodeToName(borderCountriesCodes);
+	})();
 </script>
 
 <svelte:head>
@@ -98,8 +70,10 @@
 					<div class="md:flex md:justify-start md:gap-5">
 						<p class="font-semibold text-lg mb-5 md:mb-0">Border Countries:</p>
 						<ul class="flex flex-wrap gap-3">
-							{#each borderCountriesCodes as borderCountry}
-								<li class="border shadow px-6 py-1">{borderCountry}</li>
+							{#each borderCountriesNames as borderCountry}
+								<li class="border shadow px-6 py-1 dark:bg-slate-800 dark:border-none">
+									{borderCountry}
+								</li>
 							{/each}
 						</ul>
 					</div>
