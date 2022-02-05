@@ -1,6 +1,8 @@
 <script>
 	import '../app.css';
 	import Header from '../components/Header.svelte';
+
+	let dark = false;
 </script>
 
 <svelte:head>
@@ -12,5 +14,7 @@
 	/>
 </svelte:head>
 
-<Header />
-<slot />
+<div class:dark class="min-h-screen flex flex-col">
+	<Header bind:dark />
+	<slot />
+</div>

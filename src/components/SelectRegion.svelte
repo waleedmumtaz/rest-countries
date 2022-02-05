@@ -1,5 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import IconArrowExpand from './IconArrowExpand.svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -14,7 +15,7 @@
 		on:change={handleChange}
 		name="regions"
 		id="regions"
-		class="appearance-none pl-8 pr-16 py-4 rounded-lg focus:outline-none w-fit"
+		class="appearance-none pl-8 pr-16 py-4 rounded-lg focus:outline-none w-fit dark:bg-slate-800 dark:text-slate-200"
 	>
 		<option selected disabled hidden>Filter by Region</option>
 		<option value="Africa">Africa</option>
@@ -23,5 +24,7 @@
 		<option value="Europe">Europe</option>
 		<option value="Oceania">Oceania</option>
 	</select>
-	<img src="/icon-arrow-expand.svg" alt="expand arrow" class="absolute right-2" />
+	<div class="absolute right-2">
+		<IconArrowExpand fillColor="gray" />
+	</div>
 </form>

@@ -70,7 +70,9 @@
 	<title>Where in the world?</title>
 </svelte:head>
 
-<main class="font-nunito-sans bg-cstm-very-light-gray-light-mode-background p-5">
+<main
+	class="font-nunito-sans bg-cstm-very-light-gray-light-mode-background dark:bg-slate-900 dark:text-slate-200 p-5 flex-1"
+>
 	<div class="sm:flex sm:justify-between sm:container sm:mx-auto">
 		<Search on:search={setSearchTerm} />
 		<SelectRegion on:filter={setRegion} />

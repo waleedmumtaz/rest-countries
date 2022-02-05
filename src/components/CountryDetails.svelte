@@ -64,7 +64,7 @@
 	<title>{name} | Where in the world?</title>
 </svelte:head>
 
-<div>
+<div class="dark:bg-slate-900 dark:text-slate-200 flex-1">
 	<div class="p-5 md:px-0 my-5 md:container md:mx-auto">
 		<a href="/" class="border shadow px-6 py-1">&#8592; Back</a>
 		<div class="md:flex md:items-center md:gap-20">
