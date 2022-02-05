@@ -13,11 +13,13 @@
 	<div class="absolute top-4 left-7">
 		<IconSearch fillColor="gray" />
 	</div>
+	<label for="country" class="hidden">Country</label>
 	<input
 		type="text"
 		name="country"
 		on:input={handleInput}
 		placeholder="Search for a country..."
 		class="pl-16 py-4 w-full rounded-lg focus:outline-none dark:bg-slate-800 dark:text-slate-200"
+		aria-label="country"
 	/>
 </form>

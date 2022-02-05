@@ -15,7 +15,7 @@
 				class="flex items-center gap-2"
 			>
 				<IconDarkLightMode fillColor="gray" />
-				<p class="font-semibold">{dark ? 'Light mode' : 'Dark mode'}</p>
+				<span class="font-semibold">{dark ? 'Light mode' : 'Dark mode'}</span>
 			</button>
 		</div>
 	</nav>

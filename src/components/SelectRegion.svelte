@@ -10,12 +10,13 @@
 </script>
 
 <form on:submit|preventDefault class="shadow-sm mb-8 sm:mb-0 flex items-center w-fit relative">
-	<label for="regions" />
+	<label for="regions" class="hidden">Regions</label>
 	<select
 		on:change={handleChange}
 		name="regions"
 		id="regions"
 		class="appearance-none pl-8 pr-16 py-4 rounded-lg focus:outline-none w-fit dark:bg-slate-800 dark:text-slate-200"
+		aria-label="regions"
 	>
 		<option selected disabled hidden>Filter by Region</option>
 		<option value="Africa">Africa</option>
